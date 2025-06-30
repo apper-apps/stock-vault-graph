@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
-import AddCategoryModal from "@/components/organisms/AddCategoryModal";
 import ApperIcon from "@/components/ApperIcon";
+import AddCategoryModal from "@/components/organisms/AddCategoryModal";
 import Button from "@/components/atoms/Button";
 import SearchBar from "@/components/molecules/SearchBar";
 import Error from "@/components/ui/Error";
@@ -10,14 +10,15 @@ import Empty from "@/components/ui/Empty";
 import Loading from "@/components/ui/Loading";
 import { categoryService } from "@/services/api/categoryService";
 import { productService } from "@/services/api/productService";
+
 const Categories = () => {
-  const [categories, setCategories] = useState([])
-  const [products, setProducts] = useState([])
-  const [filteredCategories, setFilteredCategories] = useState([])
-  const [loading, setLoading] = useState(true)
-const [error, setError] = useState('')
-  const [searchQuery, setSearchQuery] = useState('')
-  const [addCategoryModalOpen, setAddCategoryModalOpen] = useState(false)
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [filteredCategories, setFilteredCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [addCategoryModalOpen, setAddCategoryModalOpen] = useState(false);
   
   const loadData = async () => {
     try {
@@ -80,9 +81,9 @@ const [error, setError] = useState('')
         await categoryService.delete(category.Id)
         toast.success('Category deleted successfully')
         loadData()
-      } catch (error) {
-        toast.error('Failed to delete category')
-}
+} catch (error) {
+        toast.error('Failed to delete category');
+      }
     }
   }
   
@@ -122,16 +123,15 @@ const [error, setError] = useState('')
           className="max-w-md"
         />
       </div>
-      
-      {/* Categories Grid */}
+{/* Categories Grid */}
       {filteredCategories.length === 0 ? (
         <Empty
-<Empty
           title="No categories found"
           description="Get started by creating your first product category to organize your inventory."
           actionLabel="Add Category"
           onAction={handleAddCategory}
           icon="Tags"
+        />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredCategories.map((category, index) => (
@@ -188,9 +188,9 @@ const [error, setError] = useState('')
                   </Button>
                 )}
               </div>
-            </motion.div>
+</motion.div>
           ))}
-</div>
+        </div>
       )}
       
       {/* Add Category Modal */}
@@ -199,7 +199,8 @@ const [error, setError] = useState('')
         onClose={() => setAddCategoryModalOpen(false)}
         onSuccess={handleAddCategorySuccess}
       />
-    </div>
-}
+</div>
+  );
+};
 
-export default Categories
+export default Categories;
