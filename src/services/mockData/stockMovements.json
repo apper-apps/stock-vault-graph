@@ -1,0 +1,110 @@
+[
+  {
+    "Id": 1,
+    "productId": 1,
+    "type": "IN",
+    "quantity": 50,
+    "reason": "Restock",
+    "notes": "Weekly inventory replenishment",
+    "timestamp": "2024-01-16T09:30:00Z"
+  },
+  {
+    "Id": 2,
+    "productId": 2,
+    "type": "OUT",
+    "quantity": 7,
+    "reason": "Sale",
+    "notes": "Bulk order to corporate client",
+    "timestamp": "2024-01-15T14:15:00Z"
+  },
+  {
+    "Id": 3,
+    "productId": 3,
+    "type": "IN",
+    "quantity": 100,
+    "reason": "Purchase",
+    "notes": "New shipment from supplier",
+    "timestamp": "2024-01-15T11:20:00Z"
+  },
+  {
+    "Id": 4,
+    "productId": 4,
+    "type": "OUT",
+    "quantity": 3,
+    "reason": "Sale",
+    "notes": "Last units sold",
+    "timestamp": "2024-01-14T16:45:00Z"
+  },
+  {
+    "Id": 5,
+    "productId": 5,
+    "type": "OUT",
+    "quantity": 3,
+    "reason": "Sale",
+    "notes": "Kitchen equipment order",
+    "timestamp": "2024-01-14T13:30:00Z"
+  },
+  {
+    "Id": 6,
+    "productId": 7,
+    "type": "IN",
+    "quantity": 25,
+    "reason": "Restock",
+    "notes": "Monthly yoga mat restock",
+    "timestamp": "2024-01-13T10:15:00Z"
+  },
+  {
+    "Id": 7,
+    "productId": 8,
+    "type": "OUT",
+    "quantity": 5,
+    "reason": "Sale",
+    "notes": "Fitness equipment bundle",
+    "timestamp": "2024-01-13T15:20:00Z"
+  },
+  {
+    "Id": 8,
+    "productId": 9,
+    "type": "IN",
+    "quantity": 75,
+    "reason": "Purchase",
+    "notes": "Large water bottle shipment",
+    "timestamp": "2024-01-12T12:00:00Z"
+  },
+  {
+    "Id": 9,
+    "productId": 12,
+    "type": "OUT",
+    "quantity": 9,
+    "reason": "Sale",
+    "notes": "Office equipment order",
+    "timestamp": "2024-01-12T09:45:00Z"
+  },
+  {
+    "Id": 10,
+    "productId": 1,
+    "type": "OUT",
+    "quantity": 5,
+    "reason": "Damage",
+    "notes": "Water damage during transport",
+    "timestamp": "2024-01-11T16:30:00Z"
+  },
+  {
+    "Id": 11,
+    "productId": 6,
+    "type": "OUT",
+    "quantity": 2,
+    "reason": "Sale",
+    "notes": "Home improvement order",
+    "timestamp": "2024-01-11T14:10:00Z"
+  },
+  {
+    "Id": 12,
+    "productId": 10,
+    "type": "IN",
+    "quantity": 20,
+    "reason": "Restock",
+    "notes": "Book inventory refresh",
+    "timestamp": "2024-01-10T11:00:00Z"
+  }
+]

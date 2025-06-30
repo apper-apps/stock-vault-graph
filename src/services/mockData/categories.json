@@ -1,0 +1,27 @@
+[
+  {
+    "Id": 1,
+    "name": "Electronics",
+    "description": "Electronic devices, accessories, and gadgets"
+  },
+  {
+    "Id": 2,
+    "name": "Home & Kitchen",
+    "description": "Home appliances and kitchen equipment"
+  },
+  {
+    "Id": 3,
+    "name": "Sports & Fitness",
+    "description": "Sports equipment and fitness accessories"
+  },
+  {
+    "Id": 4,
+    "name": "Books",
+    "description": "Books and educational materials"
+  },
+  {
+    "Id": 5,
+    "name": "Office Supplies",
+    "description": "Office equipment and supplies"
+  }
+]

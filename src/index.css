@@ -1,0 +1,157 @@
+@import 'react-toastify/dist/ReactToastify.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #1e293b;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 text-white px-4 py-2 rounded-md font-medium hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-150 active:scale-98;
+  }
+  
+  .btn-secondary {
+    @apply bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-md font-medium hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-150 active:scale-98;
+  }
+  
+  .btn-ghost {
+    @apply text-slate-600 px-3 py-2 rounded-md font-medium hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-150 active:scale-98;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-card border-0 overflow-hidden;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-card-hover transition-shadow duration-150;
+  }
+  
+  .input-field {
+    @apply w-full px-3 py-2 border border-slate-300 rounded-md text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-150;
+  }
+  
+  .table-row-hover {
+    @apply hover:bg-primary-50 transition-colors duration-150 cursor-pointer;
+  }
+  
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .status-in-stock {
+    @apply bg-success-100 text-success-800;
+  }
+  
+  .status-low-stock {
+    @apply bg-amber-100 text-amber-800;
+  }
+  
+  .status-out-of-stock {
+    @apply bg-error-100 text-error-800;
+  }
+  
+  .active-scale {
+    @apply active:scale-98 transition-transform duration-75;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-shimmer {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+}
+
+/* Toast Notifications */
+.Toastify__toast-container {
+  top: 1rem;
+  right: 1rem;
+  width: 320px;
+}
+
+.Toastify__toast {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  min-height: auto;
+  padding: 0.75rem;
+}
+
+.Toastify__toast--success {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.Toastify__toast--error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.Toastify__toast--warning {
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.Toastify__toast--info {
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.Toastify__progress-bar {
+  height: 2px;
+}
+
+.Toastify__progress-bar--success {
+  background: #10b981;
+}
+
+.Toastify__progress-bar--error {
+  background: #ef4444;
+}
+
+.Toastify__progress-bar--warning {
+  background: #f59e0b;
+}
+
+.Toastify__progress-bar--info {
+  background: #2563eb;
+}

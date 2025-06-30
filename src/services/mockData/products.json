@@ -1,0 +1,134 @@
+[
+  {
+    "Id": 1,
+    "sku": "TECH-001",
+    "name": "Wireless Bluetooth Headphones",
+    "description": "High-quality wireless headphones with noise cancellation",
+    "categoryId": 1,
+    "quantity": 45,
+    "reorderPoint": 10,
+    "unitPrice": 89.99,
+    "lastUpdated": "2024-01-15T10:30:00Z"
+  },
+  {
+    "Id": 2,
+    "sku": "TECH-002",
+    "name": "Smartphone Case",
+    "description": "Protective case for latest smartphone models",
+    "categoryId": 1,
+    "quantity": 8,
+    "reorderPoint": 15,
+    "unitPrice": 24.99,
+    "lastUpdated": "2024-01-14T14:20:00Z"
+  },
+  {
+    "Id": 3,
+    "sku": "TECH-003",
+    "name": "USB-C Charging Cable",
+    "description": "Fast charging USB-C cable, 6ft length",
+    "categoryId": 1,
+    "quantity": 120,
+    "reorderPoint": 25,
+    "unitPrice": 12.99,
+    "lastUpdated": "2024-01-16T09:15:00Z"
+  },
+  {
+    "Id": 4,
+    "sku": "HOME-001",
+    "name": "Coffee Maker",
+    "description": "12-cup programmable coffee maker with timer",
+    "categoryId": 2,
+    "quantity": 0,
+    "reorderPoint": 5,
+    "unitPrice": 149.99,
+    "lastUpdated": "2024-01-12T16:45:00Z"
+  },
+  {
+    "Id": 5,
+    "sku": "HOME-002",
+    "name": "Kitchen Knife Set",
+    "description": "Professional 8-piece knife set with wooden block",
+    "categoryId": 2,
+    "quantity": 12,
+    "reorderPoint": 8,
+    "unitPrice": 199.99,
+    "lastUpdated": "2024-01-13T11:30:00Z"
+  },
+  {
+    "Id": 6,
+    "sku": "HOME-003",
+    "name": "Air Purifier",
+    "description": "HEPA air purifier for rooms up to 300 sq ft",
+    "categoryId": 2,
+    "quantity": 6,
+    "reorderPoint": 8,
+    "unitPrice": 229.99,
+    "lastUpdated": "2024-01-15T13:20:00Z"
+  },
+  {
+    "Id": 7,
+    "sku": "SPORT-001",
+    "name": "Yoga Mat",
+    "description": "Non-slip yoga mat with carrying strap",
+    "categoryId": 3,
+    "quantity": 35,
+    "reorderPoint": 12,
+    "unitPrice": 39.99,
+    "lastUpdated": "2024-01-14T08:15:00Z"
+  },
+  {
+    "Id": 8,
+    "sku": "SPORT-002",
+    "name": "Resistance Bands Set",
+    "description": "Set of 5 resistance bands with different strengths",
+    "categoryId": 3,
+    "quantity": 5,
+    "reorderPoint": 10,
+    "unitPrice": 29.99,
+    "lastUpdated": "2024-01-16T15:45:00Z"
+  },
+  {
+    "Id": 9,
+    "sku": "SPORT-003",
+    "name": "Water Bottle",
+    "description": "Insulated stainless steel water bottle, 32oz",
+    "categoryId": 3,
+    "quantity": 88,
+    "reorderPoint": 20,
+    "unitPrice": 24.99,
+    "lastUpdated": "2024-01-15T12:00:00Z"
+  },
+  {
+    "Id": 10,
+    "sku": "BOOK-001",
+    "name": "Business Strategy Guide",
+    "description": "Comprehensive guide to modern business strategies",
+    "categoryId": 4,
+    "quantity": 22,
+    "reorderPoint": 15,
+    "unitPrice": 34.99,
+    "lastUpdated": "2024-01-13T17:30:00Z"
+  },
+  {
+    "Id": 11,
+    "sku": "BOOK-002",
+    "name": "Cooking Fundamentals",
+    "description": "Essential cookbook for home cooking basics",
+    "categoryId": 4,
+    "quantity": 18,
+    "reorderPoint": 10,
+    "unitPrice": 28.99,
+    "lastUpdated": "2024-01-14T10:20:00Z"
+  },
+  {
+    "Id": 12,
+    "sku": "TECH-004",
+    "name": "Wireless Mouse",
+    "description": "Ergonomic wireless mouse with precision tracking",
+    "categoryId": 1,
+    "quantity": 3,
+    "reorderPoint": 12,
+    "unitPrice": 49.99,
+    "lastUpdated": "2024-01-16T14:10:00Z"
+  }
+]
