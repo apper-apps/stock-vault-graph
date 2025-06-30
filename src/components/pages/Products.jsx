@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import { toast } from 'react-toastify'
-import Button from '@/components/atoms/Button'
-import SearchBar from '@/components/molecules/SearchBar'
-import ProductTable from '@/components/organisms/ProductTable'
-import StockAdjustmentModal from '@/components/organisms/StockAdjustmentModal'
-import Loading from '@/components/ui/Loading'
-import Error from '@/components/ui/Error'
-import Empty from '@/components/ui/Empty'
-import { productService } from '@/services/api/productService'
-import { categoryService } from '@/services/api/categoryService'
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import AddProductModal from "@/components/organisms/AddProductModal";
+import Categories from "@/components/pages/Categories";
+import ProductTable from "@/components/organisms/ProductTable";
+import StockAdjustmentModal from "@/components/organisms/StockAdjustmentModal";
+import Button from "@/components/atoms/Button";
+import SearchBar from "@/components/molecules/SearchBar";
+import Error from "@/components/ui/Error";
+import Empty from "@/components/ui/Empty";
+import Loading from "@/components/ui/Loading";
+import { categoryService } from "@/services/api/categoryService";
+import { productService } from "@/services/api/productService";
 
 const Products = () => {
   const [products, setProducts] = useState([])
@@ -17,13 +19,13 @@ const Products = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   
-  // Modals and filters
+// Modals and filters
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [adjustmentModalOpen, setAdjustmentModalOpen] = useState(false)
+  const [addProductModalOpen, setAddProductModalOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
   const [categoryFilter, setCategoryFilter] = useState('all')
-  
   const loadData = async () => {
     try {
       setError('')
@@ -110,10 +112,17 @@ const Products = () => {
     }
   }
   
-  const handleStockAdjustmentSuccess = () => {
+const handleStockAdjustmentSuccess = () => {
     loadData()
   }
+
+  const handleAddProduct = () => {
+    setAddProductModalOpen(true)
+  }
   
+  const handleAddProductSuccess = () => {
+    loadData()
+  }
   if (loading) return <Loading type="table" />
   if (error) return <Error message={error} onRetry={loadData} />
   
@@ -124,10 +133,10 @@ const Products = () => {
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Products</h1>
           <p className="text-slate-600">Manage your product inventory</p>
-        </div>
+</div>
         <Button
           icon="Plus"
-          onClick={() => toast.info('Add product functionality coming soon')}
+          onClick={handleAddProduct}
           className="mt-4 sm:mt-0"
         >
           Add Product
@@ -177,9 +186,9 @@ const Products = () => {
       {filteredProducts.length === 0 ? (
         <Empty
           title="No products found"
-          description="No products match your current filters. Try adjusting your search or filters."
+description="No products match your current filters. Try adjusting your search or filters."
           actionLabel="Add Product"
-          onAction={() => toast.info('Add product functionality coming soon')}
+          onAction={handleAddProduct}
           icon="Package"
         />
       ) : (
@@ -190,13 +199,21 @@ const Products = () => {
           onDelete={handleDelete}
         />
       )}
+)}
       
       {/* Stock Adjustment Modal */}
-      <StockAdjustmentModal
         isOpen={adjustmentModalOpen}
         onClose={() => setAdjustmentModalOpen(false)}
         product={selectedProduct}
         onSuccess={handleStockAdjustmentSuccess}
+      />
+      
+      {/* Add Product Modal */}
+      <AddProductModal
+        isOpen={addProductModalOpen}
+        onClose={() => setAddProductModalOpen(false)}
+        categories={categories}
+        onSuccess={handleAddProductSuccess}
       />
     </div>
   )
