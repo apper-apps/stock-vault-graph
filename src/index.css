@@ -30,16 +30,16 @@
 }
 
 @layer components {
-  .btn-primary {
-    @apply bg-primary-500 text-white px-4 py-2 rounded-md font-medium hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-150 active:scale-98;
+.btn-primary {
+    @apply bg-primary-500 text-white px-4 py-2 rounded-md font-medium hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-150 active:scale-95;
   }
   
-  .btn-secondary {
-    @apply bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-md font-medium hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-150 active:scale-98;
+.btn-secondary {
+    @apply bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-md font-medium hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-150 active:scale-95;
   }
   
-  .btn-ghost {
-    @apply text-slate-600 px-3 py-2 rounded-md font-medium hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-150 active:scale-98;
+.btn-ghost {
+    @apply text-slate-600 px-3 py-2 rounded-md font-medium hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-150 active:scale-95;
   }
   
   .card {
@@ -74,8 +74,8 @@
     @apply bg-error-100 text-error-800;
   }
   
-  .active-scale {
-    @apply active:scale-98 transition-transform duration-75;
+.active-scale {
+    @apply active:scale-95 transition-transform duration-75;
   }
 }
 

@@ -1,11 +1,11 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import ApperIcon from '@/components/ApperIcon'
+import React from "react";
+import { motion } from "framer-motion";
+import ApperIcon from "@/components/ApperIcon";
 
-const Button = ({ 
-  children, 
-  variant = 'primary', 
-  size = 'md', 
+const Button = ({
+  children,
+  variant = 'primary',
+  size = 'md',
   icon,
   iconPosition = 'left',
   loading = false,
@@ -15,7 +15,7 @@ const Button = ({
   type = 'button',
   ...props 
 }) => {
-  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-150 active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed'
+const baseClasses = 'inline-flex items-center justify-center font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-150 active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed'
   
   const variants = {
     primary: 'bg-primary-500 text-white hover:bg-primary-600 focus:ring-primary-500 shadow-sm',
