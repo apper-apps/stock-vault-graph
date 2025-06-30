@@ -76,10 +76,10 @@ const StockMovements = () => {
       filtered = filtered.filter(movement => movement.type === typeFilter)
     }
     
-    // Date filter
+// Date filter
     if (dateFilter !== 'all') {
       const now = new Date()
-      const filterDate = new Date()
+      let filterDate = new Date()
       
       switch (dateFilter) {
         case 'today':
