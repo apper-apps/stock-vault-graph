@@ -55,9 +55,9 @@ const Categories = () => {
   
   // Filter categories based on search
   useEffect(() => {
-    if (searchQuery) {
+if (searchQuery) {
       const filtered = categories.filter(category =>
-        category.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        category.Name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         category.description.toLowerCase().includes(searchQuery.toLowerCase())
       )
       setFilteredCategories(filtered)
@@ -76,7 +76,7 @@ const Categories = () => {
       return
     }
     
-    if (window.confirm(`Are you sure you want to delete "${category.name}"?`)) {
+if (window.confirm(`Are you sure you want to delete "${category.Name}"?`)) {
       try {
         await categoryService.delete(category.Id)
         toast.success('Category deleted successfully')
@@ -164,8 +164,8 @@ const Categories = () => {
                 </div>
               </div>
               
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                {category.name}
+<h3 className="text-lg font-semibold text-slate-900 mb-2">
+                {category.Name}
               </h3>
               
               <p className="text-sm text-slate-600 mb-4 line-clamp-2">

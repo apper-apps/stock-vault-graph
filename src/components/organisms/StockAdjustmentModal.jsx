@@ -103,8 +103,8 @@ const StockAdjustmentModal = ({
                 />
               </div>
               
-              <div className="mb-6">
-                <h4 className="font-medium text-slate-900">{product.name}</h4>
+<div className="mb-6">
+                <h4 className="font-medium text-slate-900">{product.Name}</h4>
                 <p className="text-sm text-slate-500">
                   Current Stock: <span className="font-medium">{product.quantity}</span>
                 </p>

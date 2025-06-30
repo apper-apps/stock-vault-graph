@@ -32,11 +32,11 @@ const StockMovements = () => {
       ])
       
       // Add product names to movements
-      const movementsWithProducts = movementsData.map(movement => {
+const movementsWithProducts = movementsData.map(movement => {
         const product = productsData.find(p => p.Id === movement.productId)
         return {
           ...movement,
-          productName: product?.name || 'Unknown Product',
+          productName: product?.Name || 'Unknown Product',
           productSku: product?.sku || 'N/A'
         }
       })

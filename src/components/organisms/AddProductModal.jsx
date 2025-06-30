@@ -78,7 +78,7 @@ const AddProductModal = ({ isOpen, onClose, categories, onSuccess }) => {
     }
 
     setLoading(true)
-    try {
+try {
       const productData = {
         name: formData.name.trim(),
         sku: formData.sku.trim(),
@@ -86,8 +86,7 @@ const AddProductModal = ({ isOpen, onClose, categories, onSuccess }) => {
         categoryId: parseInt(formData.categoryId),
         quantity: parseInt(formData.quantity),
         reorderPoint: parseInt(formData.reorderPoint),
-        costPrice: parseFloat(formData.costPrice),
-        sellingPrice: parseFloat(formData.sellingPrice)
+        unitPrice: parseFloat(formData.sellingPrice)
       }
 
       await productService.create(productData)
@@ -181,9 +180,9 @@ const AddProductModal = ({ isOpen, onClose, categories, onSuccess }) => {
                 required
               >
                 <option value="">Select category</option>
-                {categories.map(category => (
+{categories.map(category => (
                   <option key={category.Id} value={category.Id}>
-                    {category.name}
+                    {category.Name}
                   </option>
                 ))}
               </select>

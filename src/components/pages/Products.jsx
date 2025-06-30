@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import AddProductModal from "@/components/organisms/AddProductModal";
 import Categories from "@/components/pages/Categories";
 import ProductTable from "@/components/organisms/ProductTable";
 import StockAdjustmentModal from "@/components/organisms/StockAdjustmentModal";
+import AddProductModal from "@/components/organisms/AddProductModal";
 import Button from "@/components/atoms/Button";
 import SearchBar from "@/components/molecules/SearchBar";
 import Error from "@/components/ui/Error";
@@ -11,7 +11,6 @@ import Empty from "@/components/ui/Empty";
 import Loading from "@/components/ui/Loading";
 import { categoryService } from "@/services/api/categoryService";
 import { productService } from "@/services/api/productService";
-
 const Products = () => {
   const [products, setProducts] = useState([])
   const [categories, setCategories] = useState([])
@@ -36,12 +35,12 @@ const Products = () => {
         categoryService.getAll()
       ])
       
-      // Add category names to products
+// Add category names to products
       const productsWithCategories = productsData.map(product => {
         const category = categoriesData.find(c => c.Id === product.categoryId)
         return {
           ...product,
-          category: category?.name || 'Uncategorized'
+          category: category?.Name || 'Uncategorized'
         }
       })
       
@@ -64,9 +63,9 @@ const Products = () => {
     let filtered = products
     
     // Search filter
-    if (searchQuery) {
+if (searchQuery) {
       filtered = filtered.filter(product =>
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.Name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         product.sku.toLowerCase().includes(searchQuery.toLowerCase()) ||
         product.category.toLowerCase().includes(searchQuery.toLowerCase())
       )
@@ -101,7 +100,7 @@ const Products = () => {
   }
   
   const handleDelete = async (product) => {
-    if (window.confirm(`Are you sure you want to delete "${product.name}"?`)) {
+if (window.confirm(`Are you sure you want to delete "${product.Name}"?`)) {
       try {
         await productService.delete(product.Id)
         toast.success('Product deleted successfully')
@@ -172,9 +171,9 @@ const handleStockAdjustmentSuccess = () => {
               className="w-full px-3 py-2 border border-slate-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
             >
               <option value="all">All Categories</option>
-              {categories.map(category => (
+{categories.map(category => (
                 <option key={category.Id} value={category.Id}>
-                  {category.name}
+                  {category.Name}
                 </option>
               ))}
             </select>
@@ -197,11 +196,11 @@ description="No products match your current filters. Try adjusting your search o
           onEdit={handleEdit}
           onAdjustStock={handleAdjustStock}
           onDelete={handleDelete}
-        />
+/>
       )}
-)}
       
       {/* Stock Adjustment Modal */}
+      <StockAdjustmentModal
         isOpen={adjustmentModalOpen}
         onClose={() => setAdjustmentModalOpen(false)}
         product={selectedProduct}

@@ -41,7 +41,7 @@ const Dashboard = () => {
   
   // Calculate stats
   const totalProducts = products.length
-  const totalValue = products.reduce((sum, p) => sum + (p.quantity * p.unitPrice), 0)
+const totalValue = products.reduce((sum, p) => sum + (p.quantity * p.unitPrice), 0)
   const lowStockItems = products.filter(p => p.quantity <= p.reorderPoint && p.quantity > 0)
   const outOfStockItems = products.filter(p => p.quantity === 0)
   
@@ -139,10 +139,10 @@ const Dashboard = () => {
             <p className="text-slate-500 text-center py-8">No low stock items</p>
           ) : (
             <div className="space-y-3">
-              {lowStockItems.slice(0, 5).map((product) => (
+{lowStockItems.slice(0, 5).map((product) => (
                 <div key={product.Id} className="flex items-center justify-between p-3 bg-amber-50 rounded-lg">
                   <div>
-                    <div className="font-medium text-slate-900">{product.name}</div>
+                    <div className="font-medium text-slate-900">{product.Name}</div>
                     <div className="text-sm text-slate-600">SKU: {product.sku}</div>
                   </div>
                   <div className="text-right">
@@ -186,9 +186,9 @@ const Dashboard = () => {
                           }`} 
                         />
                       </div>
-                      <div>
+<div>
                         <div className="font-medium text-slate-900">
-                          {product?.name || 'Unknown Product'}
+                          {product?.Name || 'Unknown Product'}
                         </div>
                         <div className="text-sm text-slate-600">{movement.reason}</div>
                       </div>

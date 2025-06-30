@@ -52,7 +52,7 @@ const AddCategoryModal = ({ isOpen, onClose, onSuccess }) => {
     }
 
     setLoading(true)
-    try {
+try {
       const categoryData = {
         name: formData.name.trim(),
         description: formData.description.trim()

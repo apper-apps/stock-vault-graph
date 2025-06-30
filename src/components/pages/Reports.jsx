@@ -57,13 +57,13 @@ const Reports = () => {
   const recentStockOut = recentMovements.filter(m => m.type === 'OUT').reduce((sum, m) => sum + m.quantity, 0)
   
   // Category breakdown
-  const categoryBreakdown = categories.map(category => {
+const categoryBreakdown = categories.map(category => {
     const categoryProducts = products.filter(p => p.categoryId === category.Id)
     const totalQuantity = categoryProducts.reduce((sum, p) => sum + p.quantity, 0)
     const totalValue = categoryProducts.reduce((sum, p) => sum + (p.quantity * p.unitPrice), 0)
     
     return {
-      name: category.name,
+      name: category.Name,
       productCount: categoryProducts.length,
       totalQuantity,
       totalValue
@@ -190,7 +190,7 @@ const Reports = () => {
             <tbody className="divide-y divide-slate-200">
               {categoryBreakdown.map((category, index) => (
                 <tr key={index}>
-                  <td className="py-3 text-sm font-medium text-slate-900">
+<td className="py-3 text-sm font-medium text-slate-900">
                     {category.name}
                   </td>
                   <td className="py-3 text-sm text-slate-600 text-right">
@@ -232,8 +232,8 @@ const Reports = () => {
                 <div className="flex items-center justify-center w-8 h-8 bg-slate-200 rounded-full mr-3 text-sm font-medium text-slate-600">
                   {index + 1}
                 </div>
-                <div>
-                  <div className="font-medium text-slate-900">{product.name}</div>
+<div>
+                  <div className="font-medium text-slate-900">{product.Name}</div>
                   <div className="text-sm text-slate-500">SKU: {product.sku}</div>
                 </div>
               </div>
