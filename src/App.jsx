@@ -13,9 +13,9 @@ import Layout from '@/components/organisms/Layout'
 import Dashboard from '@/components/pages/Dashboard'
 import Products from '@/components/pages/Products'
 import Categories from '@/components/pages/Categories'
+import Companies from '@/components/pages/Companies'
 import StockMovements from '@/components/pages/StockMovements'
 import Reports from '@/components/pages/Reports'
-
 // Create auth context
 export const AuthContext = createContext(null);
 
@@ -128,10 +128,11 @@ function App() {
         <Route path="/error" element={<ErrorPage />} />
         <Route path="/prompt-password/:appId/:emailAddress/:provider" element={<PromptPassword />} />
         <Route path="/reset-password/:appId/:fields" element={<ResetPassword />} />
-        <Route path="/" element={<Layout />}>
+<Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="products" element={<Products />} />
           <Route path="categories" element={<Categories />} />
+          <Route path="companies" element={<Companies />} />
           <Route path="stock-movements" element={<StockMovements />} />
           <Route path="reports" element={<Reports />} />
         </Route>

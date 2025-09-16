@@ -4,10 +4,11 @@ import { motion } from 'framer-motion'
 import ApperIcon from '@/components/ApperIcon'
 
 const Sidebar = ({ isOpen, onClose }) => {
-  const navigation = [
+const navigation = [
     { name: 'Dashboard', href: '/', icon: 'LayoutDashboard' },
     { name: 'Products', href: '/products', icon: 'Package' },
     { name: 'Categories', href: '/categories', icon: 'Tags' },
+    { name: 'Companies', href: '/companies', icon: 'Factory' },
     { name: 'Stock Movements', href: '/stock-movements', icon: 'TrendingUp' },
     { name: 'Reports', href: '/reports', icon: 'BarChart3' },
   ]
