@@ -16,6 +16,7 @@ import Categories from '@/components/pages/Categories'
 import Companies from '@/components/pages/Companies'
 import StockMovements from '@/components/pages/StockMovements'
 import Reports from '@/components/pages/Reports'
+import Contacts from '@/components/pages/Contacts'
 // Create auth context
 export const AuthContext = createContext(null);
 
@@ -132,10 +133,11 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="products" element={<Products />} />
           <Route path="categories" element={<Categories />} />
-          <Route path="companies" element={<Companies />} />
-          <Route path="stock-movements" element={<StockMovements />} />
-          <Route path="reports" element={<Reports />} />
-        </Route>
+<Route path="companies" element={<Companies />} />
+<Route path="contacts" element={<Contacts />} />
+<Route path="stock-movements" element={<StockMovements />} />
+<Route path="reports" element={<Reports />} />
+</Route>
       </Routes>
       
       <ToastContainer
