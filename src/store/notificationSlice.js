@@ -52,7 +52,8 @@ export const selectNotificationsLoading = (state) => state.notifications.loading
 export const selectNotificationsError = (state) => state.notifications.error;
 export const selectUnreadNotifications = (state) => 
   state.notifications.notifications.filter(n => n.status_c === 'Unread');
+export const selectReadNotifications = (state) => 
+  state.notifications.notifications.filter(n => n.status_c === 'Read');
 export const selectUnreadCount = (state) => 
   state.notifications.notifications.filter(n => n.status_c === 'Unread').length;
-
 export default notificationSlice.reducer;

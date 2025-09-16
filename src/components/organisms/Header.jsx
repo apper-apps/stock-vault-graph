@@ -10,7 +10,9 @@ import {
   setLoading, 
   updateNotificationStatus, 
   selectUnreadCount, 
-  selectNotifications 
+  selectNotifications,
+  selectReadNotifications,
+  selectUnreadNotifications
 } from '@/store/notificationSlice'
 
 const Header = ({ onMenuClick }) => {
@@ -18,9 +20,12 @@ const Header = ({ onMenuClick }) => {
   const { logout } = useContext(AuthContext)
   const { user } = useSelector((state) => state.user)
   const unreadCount = useSelector(selectUnreadCount)
-  const notifications = useSelector(selectNotifications)
+const notifications = useSelector(selectNotifications)
+  const readNotifications = useSelector(selectReadNotifications)
+  const unreadNotifications = useSelector(selectUnreadNotifications)
   const [showNotifications, setShowNotifications] = useState(false)
   const [notificationLoading, setNotificationLoading] = useState(false)
+  const [notificationFilter, setNotificationFilter] = useState('All')
   const dropdownRef = useRef(null)
   
   // Load notifications on component mount
@@ -118,13 +123,47 @@ const Header = ({ onMenuClick }) => {
             </Button>
 
             {/* Notifications Dropdown */}
-            {showNotifications && (
+{showNotifications && (
               <div className="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-slate-200 max-h-96 overflow-y-auto z-50">
                 <div className="p-4 border-b border-slate-200">
-                  <h3 className="font-semibold text-slate-900">Notifications</h3>
-                  {unreadCount > 0 && (
-                    <p className="text-sm text-slate-600">{unreadCount} unread</p>
-                  )}
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="font-semibold text-slate-900">Notifications</h3>
+                    {unreadCount > 0 && (
+                      <p className="text-sm text-slate-600">{unreadCount} unread</p>
+                    )}
+                  </div>
+                  <div className="flex gap-1">
+                    <button
+                      onClick={() => setNotificationFilter('All')}
+                      className={`px-3 py-1 text-xs rounded-full font-medium transition-colors ${
+                        notificationFilter === 'All'
+                          ? 'bg-primary-500 text-white'
+                          : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                      }`}
+                    >
+                      All
+                    </button>
+                    <button
+                      onClick={() => setNotificationFilter('Unread')}
+                      className={`px-3 py-1 text-xs rounded-full font-medium transition-colors ${
+                        notificationFilter === 'Unread'
+                          ? 'bg-primary-500 text-white'
+                          : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                      }`}
+                    >
+                      Unread
+                    </button>
+                    <button
+                      onClick={() => setNotificationFilter('Read')}
+                      className={`px-3 py-1 text-xs rounded-full font-medium transition-colors ${
+                        notificationFilter === 'Read'
+                          ? 'bg-primary-500 text-white'
+                          : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                      }`}
+                    >
+                      Read
+                    </button>
+                  </div>
                 </div>
                 
                 {notifications.length === 0 ? (
@@ -133,8 +172,22 @@ const Header = ({ onMenuClick }) => {
                     <p>No notifications</p>
                   </div>
                 ) : (
-                  <div className="max-h-80 overflow-y-auto">
-                    {notifications.map((notification) => (
+<div className="max-h-80 overflow-y-auto">
+                  {(() => {
+                    const filteredNotifications = 
+                      notificationFilter === 'All' ? notifications :
+                      notificationFilter === 'Unread' ? unreadNotifications :
+                      readNotifications;
+
+                    if (filteredNotifications.length === 0) {
+                      return (
+                        <div className="p-4 text-center text-slate-500 text-sm">
+                          No {notificationFilter.toLowerCase()} notifications
+                        </div>
+                      );
+                    }
+
+                    return filteredNotifications.map((notification) => (
                       <div
                         key={notification.Id}
                         className={`p-4 border-b border-slate-100 hover:bg-slate-50 ${
@@ -143,15 +196,18 @@ const Header = ({ onMenuClick }) => {
                       >
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
-                            <p className="text-sm font-medium text-slate-900">
-                              {notification.Name}
-                            </p>
-                            <p className="text-sm text-slate-600 mt-1">
-                              {notification.message_c}
-                            </p>
-                            {notification.productId_c?.Name && (
-                              <p className="text-xs text-slate-500 mt-1">
-                                Product: {notification.productId_c.Name}
+                            {notification.productId_c?.Name ? (
+                              <div className="flex items-center gap-2">
+                                <p className="text-sm font-medium text-slate-900">
+                                  {notification.productId_c.Name}
+                                </p>
+                                <span className="px-2 py-0.5 text-xs bg-amber-100 text-amber-800 rounded-full font-medium">
+                                  Low stock
+                                </span>
+                              </div>
+                            ) : (
+                              <p className="text-sm font-medium text-slate-900">
+                                {notification.Name}
                               </p>
                             )}
                             <p className="text-xs text-slate-400 mt-1">
@@ -169,9 +225,10 @@ const Header = ({ onMenuClick }) => {
                           )}
                         </div>
                       </div>
-                    ))}
-                  </div>
-                )}
+                    ));
+                  })()}
+                </div>
+              )}
               </div>
             )}
           </div>
