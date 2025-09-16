@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { format } from 'date-fns'
+import { useDispatch, useSelector } from 'react-redux'
 import ApperIcon from '@/components/ApperIcon'
 import Loading from '@/components/ui/Loading'
 import Error from '@/components/ui/Error'
 import { productService } from '@/services/api/productService'
 import { stockMovementService } from '@/services/api/stockMovementService'
-
+import { notificationService } from '@/services/api/notificationService'
+import { addNotification } from '@/store/notificationSlice'
 const Dashboard = () => {
+  const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.user)
   const [products, setProducts] = useState([])
   const [movements, setMovements] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
-  
   const loadData = async () => {
     try {
       setError('')
@@ -23,8 +26,26 @@ const Dashboard = () => {
         stockMovementService.getAll()
       ])
       
-      setProducts(productsData)
+setProducts(productsData)
       setMovements(movementsData.slice(0, 10)) // Latest 10 movements
+      
+      // Check for low stock items and create notifications
+      const lowStockItems = productsData.filter(p => p.quantity <= p.reorderPoint && p.quantity > 0)
+      
+      for (const product of lowStockItems) {
+        try {
+          await notificationService.createNotification({
+            Name: `Low Stock Alert: ${product.Name}`,
+            userId_c: user?.userId,
+            message_c: `Product "${product.Name}" is running low. Current stock: ${product.quantity}, Reorder point: ${product.reorderPoint}`,
+            timestamp_c: new Date().toISOString(),
+            status_c: 'Unread',
+            productId_c: product.Id
+          })
+        } catch (notificationError) {
+          console.error('Failed to create low stock notification:', notificationError)
+        }
+      }
     } catch (err) {
       setError('Failed to load dashboard data')
     } finally {
